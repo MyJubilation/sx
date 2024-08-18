@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sx.userserver.billiardsTable.mapper.BilliardsMapper">
+
+
+
+    <resultMap id="BilliardsResultMap" type="com.sx.userserver.billiardsTable.entity.Billiards">
+        <id column="id" property="id" />
+        <result column="price" property="price" />
+        <result column="usertime" property="usertime" />
+        <result column="user_id" property="userId" />
+        <result column="residual_time" property="residualTime" />
+    </resultMap>
+
+    <select id="selectResidualById" resultType="java.time.LocalDateTime">
+        SELECT
+            residual_time
+        FROM
+            billiards
+        WHERE
+            id =#{id}
+    </select>
+
+    <update id="updateBilliards">
+        UPDATE billiards
+        SET price = #{price},
+            usertime = #{usertime},
+            user_id = #{userId},
+            residual_time = #{residualTime}
+        WHERE id = #{id};
+    </update>
+
+    <select id="selectBilliardsById" resultMap="BilliardsResultMap">
+        SELECT
+            *
+        FROM
+            billiards
+        WHERE
+            id = #{id}
+    </select>
+
+    <select id="selectUserRemainMoney" resultType="java.lang.Float">
+        select
+            remain_money
+        from
+            user_table
+        where
+            user_id = #{userId}
+    </select>
+
+    <select id="getBilliardsId" resultType="com.sx.userserver.billiardsTable.entity.Billiards">
+        SELECT
+            id,
+            residual_time,
+            user_id
+        FROM
+            billiards
+    </select>
+
+    <update id="updateUserMoney">
+        UPDATE user_table
+        SET remain_money = #{money}
+        WHERE
+            user_id = #{userId}
+    </update>
+
+    <update id="settleAccountsMoney">
+        UPDATE user_table
+        SET remain_money = remain_money + #{money}
+        WHERE
+            user_id = #{userId}
+    </update>
+    <update id="settleAccountsTime">
+        UPDATE billiards
+        SET residual_time = #{now}
+        WHERE
+            id = #{id}
+    </update>
+
+</mapper>
