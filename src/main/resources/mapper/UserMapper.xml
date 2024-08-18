@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sx.userserver.userTable.mapper.UserTableMapper">
+    
+    <resultMap id="UserResultMap" type="com.sx.userserver.userTable.mapper.UserTableMapper">
+        <id column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="user_password" property="userPassword" />
+        <result column="remain_money" property="remainMoney" />
+        <result column="user_status" property="userStatus" />
+    </resultMap>
+
+    <resultMap id="BaseResultMap" type="com.sx.userserver.adminTable.entity.AdminTable">
+        <result column="adm_name" property="admName" />
+        <result column="adm_password" property="admPassword" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        adm_name , adm_password
+    </sql>
+
+    <select id="selectByUserName" resultMap="UserResultMap">
+        SELECT
+            *
+        FROM
+            user_table
+    </select>
+</mapper>
