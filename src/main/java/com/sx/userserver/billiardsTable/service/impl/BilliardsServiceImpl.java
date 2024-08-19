@@ -1,43 +1,18 @@
 package com.sx.userserver.billiardsTable.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.sx.userserver.billiardsTable.entity.Billiards;
 import com.sx.userserver.billiardsTable.mapper.BilliardsMapper;
 import com.sx.userserver.billiardsTable.service.BilliardsService;
-import com.sx.userserver.userTable.entity.UserTable;
-import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Base64Utils;
-import org.springframework.util.ObjectUtils;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
-import javax.imageio.ImageIO;
-import javax.xml.transform.Result;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
-/**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author sdx2009
- * @since 2024-07-15
- */
+
 @Service
 //public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 //

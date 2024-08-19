@@ -11,14 +11,7 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-/**
- * <p>
- *
- * </p>
- *
- * @author sdx2009
- * @since 2024-07-15
- */
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("user")

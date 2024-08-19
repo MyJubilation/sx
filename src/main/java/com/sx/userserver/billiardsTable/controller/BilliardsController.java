@@ -1,30 +1,16 @@
 package com.sx.userserver.billiardsTable.controller;
 
 
-import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.sx.userserver.billiardsTable.dto.LoginUser;
 import com.sx.userserver.billiardsTable.entity.Billiards;
 import com.sx.userserver.billiardsTable.service.BilliardsService;
 import com.sx.userserver.common.result.Result;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-/**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author sdx2009
- * @since 2024-07-15
- */
+
 @RestController
 @RequestMapping("/billiards")
 public class BilliardsController {
